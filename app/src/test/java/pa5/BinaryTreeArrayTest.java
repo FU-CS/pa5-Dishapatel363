@@ -6,20 +6,90 @@ package pa5;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
-// class BinaryTreeArrayTest {
-//     @Test
-//     void testInsert(){
-//         BinaryTreeArray tree = new BinaryTreeArray(10);
-//         tree.insert(1);
-//         tree.insert(2);
-//         tree.insert(3);
-//         tree.insert(4);
-//         tree.insert(5);
-//         tree.insert(6);
-//         tree.insert(7);
-//         tree.insert(8);
-//         tree.insert(9);
-//         tree.insert(10);
-//         assertEquals("1 2 3 4 5 6 7 8 9 10", tree.levelOrder());
-//     }
-// }
+class BinaryTreeArrayTest {
+    @Test
+    void testInsert(){
+        BinaryTreeArray tree = new BinaryTreeArray();
+        tree.insert(1);
+        tree.insert(2);
+        tree.insert(3);
+        tree.insert(4);
+        tree.insert(5);
+        tree.insert(6);
+        tree.insert(7);
+        tree.insert(8);
+        tree.insert(9);
+        tree.insert(10);
+        assertEquals("1 2 3 4 5 6 7 8 9 10", tree.levelOrder());
+    }
+
+    @Test
+    void testDelete() {
+        BinaryTreeArray tree = new BinaryTreeArray();
+
+        // Insert elements into the tree
+        tree.insert(1);
+        tree.insert(2);
+        tree.insert(3);
+        tree.insert(4);
+        tree.insert(5);
+        tree.delete(3);
+        assertEquals("1 2 5 4", tree.levelOrder());
+    }
+
+    @Test
+    void testInOrderTraversal() {
+        BinaryTreeArray tree = new BinaryTreeArray();
+        tree.insert(4);
+        tree.insert(2);
+        tree.insert(6);
+        tree.insert(1);
+        tree.insert(3);
+        tree.insert(5);
+        tree.insert(7);
+        assertEquals("1 2 3 4 5 6 7", tree.inOrder());
+    }
+
+    @Test
+    void testPreOrderTraversal() {
+        BinaryTreeArray tree = new BinaryTreeArray();
+        tree.insert(4);
+        tree.insert(2);
+        tree.insert(6);
+        tree.insert(1);
+        tree.insert(3);
+        tree.insert(5);
+        tree.insert(7);
+        assertEquals("4 2 1 3 6 5 7", tree.preOrder());
+    }
+
+    @Test
+    void testPostOrderTraversal() {
+        BinaryTreeArray tree = new BinaryTreeArray();
+        tree.insert(4);
+        tree.insert(2);
+        tree.insert(6);
+        tree.insert(1);
+        tree.insert(3);
+        tree.insert(5);
+        tree.insert(7);
+        assertEquals("1 3 2 5 7 6 4", tree.postOrder());
+    }
+
+    @Test
+    void testLongestPath() {
+        BinaryTreeArray tree = new BinaryTreeArray();
+        tree.insert(4);
+        tree.insert(2);
+        tree.insert(6);
+        tree.insert(1);
+        tree.insert(3);
+        tree.insert(5);
+        tree.insert(7);
+        assertEquals(3, tree.longestPath());
+    }
+
+
+
+}
+
